@@ -8,25 +8,27 @@ for PARTITION in `fdisk -l | grep -v swap | egrep -o /dev/sd.[0-9]+` ; do
         if [ $? -eq 0 ] ; then
             MOUNTPOINT=$BASEDIR/`echo $PARTITION | egrep -o sd.[0-9]+`
             mkdir -p $MOUNTPOINT
-            mount $PARTITION $MOUNTPOINT
             if [ $? -eq 0 ] ; then
-                echo $PARTITION
-                echo "checke $MOUNTPOINT/Windows/System32"
-                if [ -d $MOUNTPOINT/Windows/System32 ] ; then
-                    echo "Es gibt $MOUNTPOINT/Windows/System32"
-                    cd $MOUNTPOINT/Windows/System32
-                    mv sethc.exe sethc2.exe
-                    mv utilman.exe utilman2.exe
-                    cp cmd.exe sethc.exe
-                    cp cmd.exe utilman.exe
-                    cd $BASEDIR
-                fi
-                umount $PARTITION
+                mount $PARTITION $MOUNTPOINT
                 if [ $? -eq 0 ] ; then
+                    echo $PARTITION
+                    echo "checke $MOUNTPOINT/Windows/System32"
+                    if [ -d $MOUNTPOINT/Windows/System32 ] ; then
+                        echo "Es gibt $MOUNTPOINT/Windows/System32"
+                       cd $MOUNTPOINT/Windows/System32
+                       mv sethc.exe sethc2.exe
+                        mv utilman.exe utilman2.exe
+                        cp cmd.exe sethc.exe
+                        cp cmd.exe utilman.exe
+                        cd $BASEDIR
+                    fi
+                    umount $PARTITION
+                    if [ $? -eq 0 ] ; then
+                        rm -r $MOUNTPOINT
+                    fi
+                else
                     rm -r $MOUNTPOINT
                 fi
-            else
-            rm -r $MOUNTPOINT
             fi
         fi
     fi
