@@ -19,7 +19,7 @@ for PARTITION in `fdisk -l | grep -v swap | egrep -o /dev/sd.[0-9]+` ; do
                        mv sethc.exe sethc2.exe
                         mv utilman.exe utilman2.exe
                         cp cmd.exe sethc.exe
-                        cp cmd.exe utilman.exe
+                        cp cmd.exe utilman.exe #maybe Utilman
                         cd $BASEDIR
                     fi
                     umount $PARTITION
