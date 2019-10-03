@@ -12,3 +12,4 @@ if you have any suggestions fell free to contact me<br>
 install.sh with root priv<br>
 type winmod in terminal
 </p>
+## WannaSToftware is featured
