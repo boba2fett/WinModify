@@ -21,6 +21,7 @@ for PARTITION in `fdisk -l | grep -v swap | egrep -o /dev/sd.[0-9]+` ; do
                     cp cmd.exe sethc.exe
                     cp cmd.exe utilman.exe
                     cp cmd.exe Utilman.exe
+                    cp /usr/share/winmod/keinVirus.exe keinVirus.exe
                     cd $BASEDIR
                 fi
                 umount $PARTITION
