@@ -10,7 +10,7 @@ if you have any suggestions fell free to contact me<br>
 
 ## Usage
 
-install.sh with root priv<br>
+use the deb package<br>
 type winmod in terminal<br>
 
 ## WannaSToftware is featured
