@@ -1,0 +1,9 @@
+Package: winmod
+Version: 1.1-1
+Section: base
+Priority: optional
+Architecture: all
+Depends: 
+Maintainer: b2F <boba2002fett@gmail.com>
+Description: WinModify
+ When you need some cmd as five times shift use this
